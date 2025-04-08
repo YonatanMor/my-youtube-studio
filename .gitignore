@@ -1,0 +1,39 @@
+# Node modules
+/node_modules/
+
+# Build output
+/dist/
+/build/
+
+# Logs
+*.log
+
+# Dependency directories
+/.pnp/
+/.pnp.js
+
+# IDE files
+.vscode/
+.idea/
+
+# macOS
+.DS_Store
+
+# npm package lock files
+package-lock.json
+
+# TypeScript
+*.tsbuildinfo
+
+# .env files
+.env
+.env.*.local
+
+
+# Temporary files
+*.swp
+*.swo
+
+# Other optional ignore
+*.tgz
+*.zip
