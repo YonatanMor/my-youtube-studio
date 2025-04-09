@@ -7,6 +7,7 @@ type ContentItem = {
   description: string
   pobDate: Date
   poblished: boolean
+  length: string
 }
 
 export function AutoSuggest({
@@ -29,22 +30,22 @@ export function AutoSuggest({
   }, [query, content])
 
   return (
-    <div className="w-full max-w-md">
+    <div className="ml-16 w-full max-w-md">
       <input
         type="text"
         value={query}
         onChange={(e) => setQuery(e.target.value)}
         onFocus={() => setFocused(true)}
         onBlur={() => setTimeout(() => setFocused(false), 100)}
-        className="placeholder-off-white-300 w-full px-3 py-2 outline-none"
+        className="placeholder-off-white-300 w-full px-3 pt-0.5 outline-none placeholder:text-xl"
         placeholder="Search across your channel"
       />
 
       {1 && (
-        //   {focused && filtered.length > 0 && (
+        // {focused && filtered.length > 0 && (
 
-        <ul className="absolute z-10 mt-1 w-full shadow">
-          <li className="bg-main mt-1 flex h-18 items-center border-gray-500 border-b justify-between rounded-t-2xl px-6">
+        <ul className="absolute left-0 mt-8 z-10 w-full shadow">
+          <li className="bg-main flex h-18 items-center justify-between rounded-t-3xl border-b border-gray-500 px-6">
             <span className="text-lg font-medium text-white">
               Your recent videos
             </span>
@@ -55,7 +56,7 @@ export function AutoSuggest({
           {filtered.map((item, idx) => (
             <li
               key={idx}
-              className="bg-main flex cursor-pointer items-center justify-between border-gray-500 border-b p-3 last:border-none hover:bg-gray-800"
+              className="bg-main flex cursor-pointer items-center justify-between border-b border-gray-500 px-6 py-3 last:border-none hover:bg-gray-800"
             >
               <div className="flex">
                 <div
@@ -64,8 +65,12 @@ export function AutoSuggest({
                     backgroundSize: "cover",
                     backgroundPosition: "center",
                   }}
-                  className={`h-26 w-40 rounded-lg border`}
-                />
+                  className={`relative h-26 w-40 rounded-lg`}
+                >
+                  <div className="absolute right-2 bottom-2 rounded-sm bg-black/80 text-white px-1 text-sm py-1">
+                    {item.length}
+                  </div>
+                </div>
                 <div className="ml-4 flex flex-col pt-3">
                   <div className="text-white">{item.title}</div>
                   <desc className="pt-1 text-gray-400">{item.description}</desc>
@@ -73,18 +78,18 @@ export function AutoSuggest({
               </div>
 
               <div className="flex h-26 flex-col pt-3">
-                <time className="text-white">
+                <div className="text-white">
                   {item.pobDate.toDateString().slice(4, 10) +
                     ", " +
                     item.pobDate.toDateString().slice(11)}
-                </time>
+                </div>
                 <div className="pt-1 text-gray-400">
                   {item.poblished ? "Published" : "Unpublished"}
                 </div>
               </div>
             </li>
           ))}
-          <li className="h-6 bg-main rounded-b-2xl"></li>
+          <li className="bg-main h-6 rounded-b-3xl"></li>
         </ul>
       )}
     </div>

@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 import { BsQuestionCircle } from "react-icons/bs"
+import { HiMagnifyingGlass } from "react-icons/hi2"
 import { TbVideoPlus } from "react-icons/tb"
 import { AutoSuggest } from "./ui/Auto-suggest"
 import { Button } from "./ui/button"
@@ -8,32 +9,37 @@ import { SidebarTrigger } from "./ui/sidebar"
 export default function TopNav() {
   const content = [
     {
-      title: "Sunset wibes",
+      title: "Clicker attack",
       imgUrl: "1.png",
       description: "bla",
-      pobDate: new Date(),
+      pobDate: new Date(2024, 9, 6, 11, 52, 5),
       poblished: true,
+      length: "3:57",
     },
     {
-      title: "Taking it in",
+      title: "Taking it all in",
       imgUrl: "2.png",
       description: "bla",
-      pobDate: new Date(),
+      pobDate: new Date(2023,0, 1, 18, 35, 0),
       poblished: true,
+      length: "4:13",
     },
     {
       title: "Car ride",
       imgUrl: "3.png",
       description: "bra",
-      pobDate: new Date(),
+      pobDate: new Date(2019, 10, 3, 16, 3, 0),
       poblished: false,
+      length: "6:22",
     },
     {
-      title: "The troubled Trio",
+      title: "Walking the earth",
       imgUrl: "4.jpg",
       description: "dla",
-      pobDate: new Date(),
+      pobDate: new Date(2021, 2, 18, 10, 20, 2),
       poblished: true,
+      length: "5:43",
+    
     },
     {
       title: "Change the cannel, i'm bored",
@@ -41,6 +47,8 @@ export default function TopNav() {
       description: "sla",
       pobDate: new Date(),
       poblished: false,
+      length: "2:35",
+    
     },
   ]
 
@@ -58,6 +66,7 @@ export default function TopNav() {
       document.addEventListener("keydown", handleKeyDown)
     }
 
+    console.log(autoSuggestFocus)
     return document.removeEventListener("keydown", handleKeyDown)
   }, [autoSuggestFocus])
 
@@ -82,8 +91,12 @@ export default function TopNav() {
       </div>
 
       <div
-        className={`relative flex w-5/12 items-center rounded-full border-2 border-transparent bg-black ${!autoSuggestFocus ? "hover:border-white" : ""}`}
+        className={`relative flex h-14 w-5/12 items-center rounded-full border-2 border-transparent bg-black ${!autoSuggestFocus ? "hover:border-white" : "bg-main"}`}
       >
+        <HiMagnifyingGlass
+          size={28}
+          className="text-off-white-500 absolute left-6"
+        />
         <AutoSuggest
           content={content}
           focused={autoSuggestFocus}
@@ -124,7 +137,7 @@ export default function TopNav() {
           Create
         </Button>
         <img
-          src="./yoni.png"
+          src="./profile pic.png"
           className="h-12 cursor-pointer rounded-full bg-amber-100"
         />
       </div>
