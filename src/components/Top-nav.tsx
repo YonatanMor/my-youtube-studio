@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react"
 import { BsQuestionCircle } from "react-icons/bs"
-import { HiMagnifyingGlass } from "react-icons/hi2"
 import { TbVideoPlus } from "react-icons/tb"
 import { AutoSuggest } from "./ui/Auto-suggest"
 import { Button } from "./ui/button"
@@ -20,7 +19,7 @@ export default function TopNav() {
       title: "Taking it all in",
       imgUrl: "2.png",
       description: "bla",
-      pobDate: new Date(2023,0, 1, 18, 35, 0),
+      pobDate: new Date(2023, 0, 1, 18, 35, 0),
       poblished: true,
       length: "4:13",
     },
@@ -39,7 +38,6 @@ export default function TopNav() {
       pobDate: new Date(2021, 2, 18, 10, 20, 2),
       poblished: true,
       length: "5:43",
-    
     },
     {
       title: "Change the cannel, i'm bored",
@@ -48,7 +46,6 @@ export default function TopNav() {
       pobDate: new Date(),
       poblished: false,
       length: "2:35",
-    
     },
   ]
 
@@ -70,10 +67,6 @@ export default function TopNav() {
     return document.removeEventListener("keydown", handleKeyDown)
   }, [autoSuggestFocus])
 
-  // function handleFocus() {
-  //   setAutoSuggestFocus(true)
-  // }
-
   return (
     <div className="bg-main z-20 flex items-center justify-between p-2 shadow-md">
       <div
@@ -90,41 +83,12 @@ export default function TopNav() {
         ></img>
       </div>
 
-      <div
-        className={`relative flex h-14 w-5/12 items-center rounded-full border-2 border-transparent bg-black ${!autoSuggestFocus ? "hover:border-white" : "bg-main"}`}
-      >
-        <HiMagnifyingGlass
-          size={28}
-          className="text-off-white-500 absolute left-6"
-        />
-        <AutoSuggest
-          content={content}
-          focused={autoSuggestFocus}
-          setFocused={setAutoSuggestFocus}
-          // onBlur={() => setAutoSuggestFocus(false)}
-        ></AutoSuggest>
-
-        {/* <HiMagnifyingGlass className="text-off-white-500 absolute left-6" />
-        <Input
-          onClick={handleFocus}
-          onFocus={handleFocus}
-          onBlur={() => setInputFocus(false)}
-          className={`placeholder-text-center text-off-white-500 placeholder-off-white-300 h-13 rounded-full border-none bg-black pl-20 text-xl placeholder:text-xl ${inputFocus ? "bg-main" : ""}`}
-          placeholder="Search across your channel"
-          // readOnly={!inputFocus}
-        ></Input>
-
-        <Select open={inputFocus}>
-          <SelectTrigger className="relative">
-            <SelectValue placeholder="Theme" className=""/>
-          </SelectTrigger>
-          <SelectContent className="z-50 h-40 w-full absolute top-0 right-0">
-            <SelectItem value="light">Light</SelectItem>
-            <SelectItem value="dark">Dark</SelectItem>
-            <SelectItem value="system">System</SelectItem>
-          </SelectContent>
-        </Select> */}
-      </div>
+      <AutoSuggest
+        content={content}
+        focused={autoSuggestFocus}
+        setFocused={setAutoSuggestFocus}
+        // onBlur={() => setAutoSuggestFocus(false)}
+      ></AutoSuggest>
 
       <div className="flex items-center gap-4 px-4">
         <BsQuestionCircle
