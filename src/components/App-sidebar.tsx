@@ -5,7 +5,6 @@ import {
   SidebarContent,
   SidebarGroup,
   SidebarGroupContent,
-  SidebarGroupLabel,
   SidebarHeader,
   SidebarMenu,
   SidebarMenuButton,
@@ -64,19 +63,29 @@ const items = [
 export function AppSidebar() {
   return (
     <Sidebar collapsible="icon" className="text-white">
-      <SidebarHeader className="overflow-hidden bg-main">
-        header
+      <SidebarHeader className="bg-main">
+        <span className="overflow-hidden text-center text-lg font-medium">
+          Your channel
+        </span>
+        <span className="overflow-hidden text-center">Yonatan Mor</span>
       </SidebarHeader>
       <SidebarContent className="bg-main">
-        <SidebarGroup className="">
-          <SidebarGroupLabel className="text-3xl text-white">GroupLabel</SidebarGroupLabel>
+        <SidebarGroup>
+          {/* <SidebarGroupLabel className="text-3xl text-white">
+            GroupLabel
+          </SidebarGroupLabel> */}
           <SidebarGroupContent>
             <SidebarMenu>
               {items.map((item) => (
-                <SidebarMenuItem key={item.title} className="py-2">
+                <SidebarMenuItem key={item.title} className="rounded-xl py-4">
                   <SidebarMenuButton asChild>
-                    <a href={item.url}>
-                      <item.icon className="h-62 w-62" style={{width:32, height:32}}/>
+                    <a href={item.url} className="">
+                      <item.icon
+                        style={{
+                          width: 32,
+                          height: 32,
+                        }}
+                      />
                       <span className="text-xl">{item.title}</span>
                     </a>
                   </SidebarMenuButton>
