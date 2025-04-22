@@ -16,9 +16,13 @@
   .bg-main {
     background-color: var(--background-main);
   }
+  .bg-tooltip {
+    background-color: var(--background-tooltip);
+  }
 }
 
 :root {
+  --background-tooltip: #45453f;
   --background-main: oklch(0.28 0 0);
   --off-white-500: oklch(87.41 0.00002 158.2);
   --off-white-300: oklch(0.77 0.0056 286.27);

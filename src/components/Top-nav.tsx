@@ -71,8 +71,8 @@ export default function TopNav() {
     <div className="bg-main z-20 flex items-center justify-between p-2 shadow-md">
       <div
         onClick={() => setAutoSuggestFocus(false)}
-        className={`absolute inset-0 bg-black/70 transition-opacity duration-150 ease-in-out ${1 ? "pointer-events-auto opacity-100" : "pointer-events-none opacity-0"}`}
-        // className={`absolute inset-0 bg-black/70 transition-opacity duration-150 ease-in-out ${autoSuggestFocus ? "pointer-events-auto opacity-100" : "pointer-events-none opacity-0"}`}
+        // className={`absolute inset-0 bg-black/70 transition-opacity duration-150 ease-in-out ${1 ? "pointer-events-auto opacity-100" : "pointer-events-none opacity-0"}`}
+        className={`absolute inset-0 bg-black/70 transition-opacity duration-150 ease-in-out ${autoSuggestFocus ? "pointer-events-auto opacity-100" : "pointer-events-none opacity-0"}`}
       />
 
       <div className="flex items-center">

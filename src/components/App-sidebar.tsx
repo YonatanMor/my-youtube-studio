@@ -76,7 +76,7 @@ export function AppSidebar() {
                 <SidebarMenuItem key={item.title} className="py-2">
                   <SidebarMenuButton asChild>
                     <a href={item.url}>
-                      <item.icon className="h-62 w-62" style={{width:66, height:66}}/>
+                      <item.icon className="h-62 w-62" style={{width:32, height:32}}/>
                       <span className="text-xl">{item.title}</span>
                     </a>
                   </SidebarMenuButton>
