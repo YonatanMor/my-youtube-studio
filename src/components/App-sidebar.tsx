@@ -108,11 +108,10 @@ export function AppSidebar() {
                   onClick={() => setCurrent(item.title)}
                   data-active={current === item.title}
                   key={item.title}
-                  // data-active="true"
-                  className={`cursor-pointer rounded-xl py-4 data-[active=true]:bg-[#1f1f1f]`}
+                  className={`cursor-pointer rounded-xl py-4 data-[active=true]:bg-[#1f1f1f] `}
                 >
                   <SidebarMenuButton asChild>
-                    <a href={item.url} className="">
+                    <a href={item.url} className="px-4">
                       {current === item.title ? (
                         <item.iconSelected
                           style={{
@@ -128,7 +127,7 @@ export function AppSidebar() {
                           }}
                         />
                       )}
-                      <span className="text-xl">{item.title}</span>
+                      <span className="text-xl pl-4">{item.title}</span>
                     </a>
                   </SidebarMenuButton>
                 </SidebarMenuItem>
